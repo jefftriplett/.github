@@ -25,3 +25,9 @@ jobs:
           repository: ${{ matrix.repo }}
           path: vendor/${{ matrix.repo }}
           persist-credentials: false
+
+      - name: Detect changes
+        id: detect_changes
+        run: |
+          echo 'vendor/${{ matrix.repo }}'
+          echo '${{ matrix.repo }}'
