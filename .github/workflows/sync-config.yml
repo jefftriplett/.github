@@ -13,6 +13,7 @@ jobs:
       matrix:
         repo:
           - jefftriplett/django-jobs
+          - jefftriplett/toggl-standup
     steps:
       - name: Clone main repository
         uses: actions/checkout@v2
@@ -29,5 +30,8 @@ jobs:
       - name: Detect changes
         id: detect_changes
         run: |
-          echo 'vendor/${{ matrix.repo }}'
           echo '${{ matrix.repo }}'
+          ls '${{ matrix.repo }}'
+
+          echo 'vendor/${{ matrix.repo }}'
+          ls 'vendor/${{ matrix.repo }}'
