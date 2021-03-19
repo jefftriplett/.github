@@ -31,7 +31,7 @@ jobs:
         id: detect_changes
         run: |
           echo '${{ matrix.repo }}'
-          ls '${{ matrix.repo }}'
+          ls
 
           echo 'vendor/${{ matrix.repo }}'
           ls 'vendor/${{ matrix.repo }}'
