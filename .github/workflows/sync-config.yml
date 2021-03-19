@@ -1,0 +1,27 @@
+name: Sync configurations
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync-triage-config:
+    if: github.repository == 'jefftriplett/.github'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo:
+          - jefftriplett/django-jobs
+    steps:
+      - name: Clone main repository
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Clone secondary repository
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ matrix.repo }}
+          path: vendor/${{ matrix.repo }}
+          persist-credentials: false
